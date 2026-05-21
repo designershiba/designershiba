@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiba Prasad Dash — GitHub Profile README</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --accent: #58a6ff;
+    --accent2: #3fb950;
+    --accent3: #d2a8ff;
+    --accent4: #ffa657;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --tag-bg: #1f2937;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .readme-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  /* === HERO === */
+  .hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 40px 0 36px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1f3a5f, #2d5a27);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+  .hero-text h1 {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .hero-text .role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--accent2);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .role::before {
+    content: '>';
+    color: var(--muted);
+  }
+  .hero-text .bio {
+    margin-top: 16px;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .badge .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+  .badge.blue .dot { background: var(--accent); }
+  .badge.purple .dot { background: var(--accent3); }
+  .badge.orange .dot { background: var(--accent4); }
+ 
+  /* === SECTION TITLES === */
+  .section-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+ 
+  /* === STATS GRID === */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+  .stat-card .num span {
+    color: var(--accent);
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+ 
+  /* === SKILLS === */
+  .skills-section { margin-bottom: 40px; }
+  .skill-group { margin-bottom: 24px; }
+  .skill-group-title {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent3);
+    margin-bottom: 10px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.2s;
+  }
+  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+  .skill-tag.core { border-color: #30363d; color: var(--accent); background: rgba(88,166,255,0.06); }
+  .skill-tag.green { color: var(--accent2); background: rgba(63,185,80,0.06); border-color: rgba(63,185,80,0.2); }
+  .skill-tag.purple { color: var(--accent3); background: rgba(210,168,255,0.06); border-color: rgba(210,168,255,0.2); }
+  .skill-tag.orange { color: var(--accent4); background: rgba(255,166,87,0.06); border-color: rgba(255,166,87,0.2); }
+ 
+  /* === EXPERIENCE TIMELINE === */
+  .timeline { margin-bottom: 40px; position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    bottom: 4px;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .tl-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tl-client {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .tl-duration {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    background: var(--surface2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+  }
+  .tl-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+  }
+  .tl-tech span {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent2);
+    background: rgba(63,185,80,0.08);
+    border: 1px solid rgba(63,185,80,0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .tl-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+ 
+  /* === CONTACT === */
+  .contact-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-btn svg { width: 16px; height: 16px; fill: currentColor; }
+ 
+  /* === FOOTER === */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+  }
+  .footer span { color: var(--accent2); }
+ 
+  /* === GRAPH BAR === */
+  .contrib-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 80px;
+    margin-bottom: 40px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .contrib-bar .bar {
+    flex: 1;
+    background: var(--accent);
+    border-radius: 3px 3px 0 0;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    min-height: 4px;
+  }
+  .contrib-bar .bar:hover { opacity: 1; }
+ 
+  /* === STREAK CARD === */
+  .streak-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .streak-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .streak-card .sk-label {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .streak-card .sk-val {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .streak-card .sk-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+ 
+  /* === HEADING PILL === */
+  .heading-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(88,166,255,0.08);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="readme-wrap">
+ 
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar">SPD</div>
+    <div class="hero-text">
+      <h1>Shiba Prasad Dash</h1>
+      <div class="role">Senior Frontend Engineer · Manager @ Cognizant</div>
+      <p class="bio">
+        11+ years crafting high-performance, accessible web applications — from enterprise supply chain platforms to consumer retail experiences. I lead teams, architect scalable frontends, and obsess over code quality.
+      </p>
+      <div class="hero-badges">
+        <div class="badge blue"><div class="dot"></div>React · Next.js · TypeScript</div>
+        <div class="badge"><div class="dot"></div>Open to Collaborate</div>
+        <div class="badge purple"><div class="dot"></div>Kolkata, India</div>
+        <div class="badge orange"><div class="dot"></div>Team Lead · 5+ Devs</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- STATS -->
+  <div class="section-title">At a glance</div>
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">11<span>+</span></div>
+      <div class="label">years experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">4<span>+</span></div>
+      <div class="label">enterprise clients</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">5<span>+</span></div>
+      <div class="label">devs led</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">87<span>mo</span></div>
+      <div class="label">total project months</div>
+    </div>
+  </div>
+ 
+  <!-- SKILLS -->
+  <div class="section-title">Tech stack</div>
+  <div class="skills-section">
+    <div class="skill-group">
+      <div class="skill-group-title">// core languages & markup</div>
+      <div class="skill-tags">
+        <div class="skill-tag core">HTML5</div>
+        <div class="skill-tag core">CSS3</div>
+        <div class="skill-tag core">SCSS</div>
+        <div class="skill-tag core">JavaScript</div>
+        <div class="skill-tag core">TypeScript</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">// frameworks & libraries</div>
+      <div class="skill-tags">
+        <div class="skill-tag green">React JS</div>
+        <div class="skill-tag green">Next.js</div>
+        <div class="skill-tag green">Redux</div>
+        <div class="skill-tag green">Redux-Saga</div>
+        <div class="skill-tag green">jQuery</div>
+        <div class="skill-tag green">Node.js</div>
+        <div class="skill-tag green">Jest</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">// tools & platforms</div>
+      <div class="skill-tags">
+        <div class="skill-tag purple">REST API</div>
+        <div class="skill-tag purple">GIT</div>
+        <div class="skill-tag purple">GTM</div>
+        <div class="skill-tag purple">AEM</div>
+        <div class="skill-tag purple">AWS</div>
+        <div class="skill-tag purple">Azure</div>
+        <div class="skill-tag purple">WordPress</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">// practices</div>
+      <div class="skill-tags">
+        <div class="skill-tag orange">Agile / Scrum</div>
+        <div class="skill-tag orange">SSR & SEO</div>
+        <div class="skill-tag orange">Unit Testing</div>
+        <div class="skill-tag orange">Code Review</div>
+        <div class="skill-tag orange">Atomic Design</div>
+        <div class="skill-tag orange">Team Leadership</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- ACTIVITY GRAPH (decorative) -->
+  <div class="section-title">Contribution activity</div>
+  <div class="contrib-bar">
+    <div class="bar" style="height:30%"></div>
+    <div class="bar" style="height:45%"></div>
+    <div class="bar" style="height:60%"></div>
+    <div class="bar" style="height:40%"></div>
+    <div class="bar" style="height:70%"></div>
+    <div class="bar" style="height:55%"></div>
+    <div class="bar" style="height:80%"></div>
+    <div class="bar" style="height:65%"></div>
+    <div class="bar" style="height:90%"></div>
+    <div class="bar" style="height:75%"></div>
+    <div class="bar" style="height:85%"></div>
+    <div class="bar" style="height:95%"></div>
+    <div class="bar" style="height:70%"></div>
+    <div class="bar" style="height:60%"></div>
+    <div class="bar" style="height:88%"></div>
+    <div class="bar" style="height:100%"></div>
+    <div class="bar" style="height:82%"></div>
+    <div class="bar" style="height:74%"></div>
+    <div class="bar" style="height:66%"></div>
+    <div class="bar" style="height:55%"></div>
+    <div class="bar" style="height:78%"></div>
+    <div class="bar" style="height:62%"></div>
+    <div class="bar" style="height:85%"></div>
+    <div class="bar" style="height:73%"></div>
+  </div>
+ 
+  <!-- EXPERIENCE -->
+  <div class="section-title">Experience</div>
+  <div class="timeline">
+ 
+    <div class="timeline-item">
+      <div class="tl-header">
+        <div class="tl-client">Walmart — GSCOPE</div>
+        <div class="tl-duration">21 months</div>
+      </div>
+      <div class="tl-tech">
+        <span>React JS</span><span>Redux</span><span>AngularJS</span><span>REST API</span><span>GIT</span>
+      </div>
+      <div class="tl-desc">Global supply chain transportation, logistics and fulfillment module. Led migration of modules from AngularJS to React JS, sprint planning, unit testing, and eslint integration for code quality.</div>
+    </div>
+ 
+    <div class="timeline-item">
+      <div class="tl-header">
+        <div class="tl-client">BlueTriton Brands</div>
+        <div class="tl-duration">11 months</div>
+      </div>
+      <div class="tl-tech">
+        <span>Next.js</span><span>Redux-Saga</span><span>Jest</span><span>SCSS</span><span>GTM</span><span>SSR</span>
+      </div>
+      <div class="tl-desc">Built a retail website from scratch using Next.js with atomic design, SSR, SEO optimization, and GTM integration. Migrated legacy JSP system to a modern stack.</div>
+    </div>
+ 
+    <div class="timeline-item">
+      <div class="tl-header">
+        <div class="tl-client">Toyota</div>
+        <div class="tl-duration">17 months</div>
+      </div>
+      <div class="tl-tech">
+        <span>React JS</span><span>SCSS</span><span>GTM</span><span>GIT</span>
+      </div>
+      <div class="tl-desc">Production support, feature enhancement, and bug fixing of existing application. GTM integration, debugging, and performance improvements.</div>
+    </div>
+ 
+    <div class="timeline-item">
+      <div class="tl-header">
+        <div class="tl-client">Okamura Corporation</div>
+        <div class="tl-duration">38 months</div>
+      </div>
+      <div class="tl-tech">
+        <span>React JS</span><span>HTML</span><span>CSS</span><span>AEM</span><span>GIT</span>
+      </div>
+      <div class="tl-desc">Built a retail website using React JS, then moved to long-term production support. Responsible for understanding business requirements and delivering stable, reliable releases.</div>
+    </div>
+ 
+  </div>
+ 
+  <!-- CONTACT -->
+  <div class="section-title">Connect</div>
+  <div class="contact-row">
+    <a class="contact-btn" href="mailto:designershiba@gmail.com">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      designershiba@gmail.com
+    </a>
+    <a class="contact-btn" href="tel:+919658224242">
+      <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      +91 9658224242
+    </a>
+    <a class="contact-btn" href="https://github.com/designershiba">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.57v-2c-3.34.72-4.04-1.61-4.04-1.61-.54-1.37-1.33-1.74-1.33-1.74-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.1-.77.41-1.29.75-1.59-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .31.21.68.82.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      github.com/designershiba
+    </a>
+  </div>
+ 
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>⚡</span> Always building. Always learning. — Shiba Prasad Dash &nbsp;·&nbsp; Dec 2021–present @ Cognizant &nbsp;·&nbsp; Grad 2015
+  </div>
+ 
+</div>
+</body>
+</html>
